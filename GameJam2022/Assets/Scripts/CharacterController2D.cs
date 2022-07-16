@@ -15,7 +15,7 @@ public class CharacterController2D : MonoBehaviour
     public Animator animator;
 
 
-    bool facingRight = true;
+    public bool facingRight = true;
     float moveDirection = 0;
     bool isGrounded = false;
     Vector3 cameraPos;
