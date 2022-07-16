@@ -449,6 +449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
+  character: {fileID: 1742565157}
 --- !u!1 &811167806
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,6 +593,7 @@ MonoBehaviour:
   gravityScale: 7
   mainCamera: {fileID: 2119474731}
   animator: {fileID: 1742565162}
+  facingRight: 1
 --- !u!70 &1742565158
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
