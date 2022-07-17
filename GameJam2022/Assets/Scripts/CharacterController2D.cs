@@ -9,11 +9,14 @@ using UnityEngine.SceneManagement;
 public class CharacterController2D : MonoBehaviour
 {
     // Move player in 2D space
+    public float HP = 100;
     public float maxSpeed = 3.4f;
     public float jumpHeight = 6.5f;
     public float gravityScale = 1.5f;
     private Camera mainCamera;
     public Animator animator;
+    public SpriteRenderer sprite;
+
 
     private UI_Inventory inventory;
 
@@ -121,6 +124,7 @@ public class CharacterController2D : MonoBehaviour
             animator.SetBool("isJumping", true);
         }
 
+
         // Camera follow
         if (mainCamera)
         {
@@ -187,6 +191,28 @@ public class CharacterController2D : MonoBehaviour
     {
         //SceneManager.LoadScene(Random.Range(1, 4));
         SceneManager.LoadScene(2);
+
+    public void TakeDamage(float damage)
+    {
+        StartCoroutine(FlashRed());
+        HP -= damage;
+        if(HP <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
+    }
+
+    public IEnumerator FlashRed()
+    {
+        sprite.color = Color.red;
+        yield return new WaitForSeconds(0.2f);
+        sprite.color = Color.white;
+
     }
 
 }
