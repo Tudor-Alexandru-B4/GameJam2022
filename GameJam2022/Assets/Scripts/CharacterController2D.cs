@@ -11,9 +11,10 @@ public class CharacterController2D : MonoBehaviour
     public float maxSpeed = 3.4f;
     public float jumpHeight = 6.5f;
     public float gravityScale = 1.5f;
-    public Camera mainCamera;
+    private Camera mainCamera;
     public Animator animator;
 
+    private UI_Inventory inventory;
 
     public bool facingRight = true;
     float moveDirection = 0;
@@ -22,10 +23,20 @@ public class CharacterController2D : MonoBehaviour
     Rigidbody2D r2d;
     CapsuleCollider2D mainCollider;
     Transform t;
+    DiceGuns diceGuns;
 
     // Use this for initialization
+
+    void Awake()
+    {
+        mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        inventory = GameObject.Find("UI_Inventory").GetComponent<UI_Inventory>();
+    }
+
     void Start()
     {
+        diceGuns = DiceDataBase.Instance.diceGuns;
+        inventory.setDice(diceGuns);
         t = transform;
         r2d = GetComponent<Rigidbody2D>();
         mainCollider = GetComponent<CapsuleCollider2D>();
@@ -63,6 +74,7 @@ public class CharacterController2D : MonoBehaviour
         // Change facing direction
         if (moveDirection != 0)
         {
+
             if (moveDirection > 0 && !facingRight)
             {
                 facingRight = true;
@@ -77,6 +89,16 @@ public class CharacterController2D : MonoBehaviour
                 //t.Rotate(0f, 180f, 0f);
 
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            changeGun();
+        }
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            GameObject.Find("Canvas").GetComponent<Canvas>().enabled = !GameObject.Find("Canvas").GetComponent<Canvas>().enabled;
         }
 
         // Jumping
@@ -134,4 +156,20 @@ public class CharacterController2D : MonoBehaviour
         Debug.DrawLine(groundCheckPos, groundCheckPos - new Vector3(0, colliderRadius, 0), isGrounded ? Color.green : Color.red);
         Debug.DrawLine(groundCheckPos, groundCheckPos - new Vector3(colliderRadius, 0, 0), isGrounded ? Color.green : Color.red);
     }
+
+    public void updateDiceGun(DiceGuns diceGun)
+    {
+        GameObject.Find("Canvas").GetComponent<Canvas>().enabled = false;
+        this.diceGuns = diceGun;
+        DiceDataBase.Instance.diceGuns = diceGun;
+        inventory.setDice(diceGun);
+    }
+
+    void changeGun()
+    {
+        int gunIndex = Random.Range(0, 6);
+        Instantiate(diceGuns.getList()[gunIndex].getPrefab(),t.position,t.rotation);
+        Destroy(gameObject);
+    }
+
 }

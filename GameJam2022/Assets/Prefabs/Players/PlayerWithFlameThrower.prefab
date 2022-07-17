@@ -62,7 +62,7 @@ GameObject:
   - component: {fileID: 5974075898937575259}
   m_Layer: 0
   m_Name: PlayerWithFlameThrower
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,7 +76,7 @@ Transform:
   m_GameObject: {fileID: 6620103444464255764}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -32.9035, y: -3.54878, z: -0.5696533}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.95, y: 0.95, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6083989973523016386}
@@ -169,8 +169,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 10.24, y: 20.48}
+  m_Offset: {x: 0, y: -2.003786}
+  m_Size: {x: 10.24, y: 16.47247}
   m_Direction: 0
 --- !u!114 &6620103444464255770
 MonoBehaviour:
@@ -187,7 +187,6 @@ MonoBehaviour:
   maxSpeed: 40
   jumpHeight: 70
   gravityScale: 7
-  mainCamera: {fileID: 0}
   animator: {fileID: 6620103444464255771}
   facingRight: 1
 --- !u!95 &6620103444464255771
