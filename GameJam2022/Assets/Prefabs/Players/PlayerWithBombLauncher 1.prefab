@@ -185,9 +185,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 100
-  maxSpeed: 40
-  jumpHeight: 70
-  gravityScale: 7
+  maxSpeed: 50
+  jumpHeight: 200
+  gravityScale: 50
   animator: {fileID: 8287573361473275531}
   sprite: {fileID: 8287573361473275527}
   facingRight: 1
