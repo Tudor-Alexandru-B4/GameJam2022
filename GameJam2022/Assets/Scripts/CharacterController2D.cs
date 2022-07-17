@@ -74,6 +74,7 @@ public class CharacterController2D : MonoBehaviour
         // Change facing direction
         if (moveDirection != 0)
         {
+
             if (moveDirection > 0 && !facingRight)
             {
                 facingRight = true;
