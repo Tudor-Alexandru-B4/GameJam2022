@@ -16,8 +16,11 @@ public class GlontScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        Destroy(gameObject);
-        Instantiate(impactEffect, transform.position, transform.rotation);
+        if (collider.gameObject.tag != "Player" && collider.gameObject.tag != "EnemyChecker")
+        {
+            Destroy(gameObject);
+            Instantiate(impactEffect, transform.position, transform.rotation);
+        }
     }
 
   

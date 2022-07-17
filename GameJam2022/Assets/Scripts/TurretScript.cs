@@ -22,12 +22,15 @@ public class TurretScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        target = GameObject.FindWithTag("Player").GetComponent<Transform>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        target = GameObject.FindWithTag("Player").GetComponent<Transform>();
+
         Vector2 targetPosition = target.position;
 
         direction = targetPosition - (Vector2)transform.position;

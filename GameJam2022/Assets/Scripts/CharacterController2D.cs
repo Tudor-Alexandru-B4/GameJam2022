@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(CapsuleCollider2D))]
@@ -36,7 +37,7 @@ public class CharacterController2D : MonoBehaviour
     void Start()
     {
         diceGuns = DiceDataBase.Instance.diceGuns;
-        inventory.setDice(diceGuns);
+        //inventory.setDice(diceGuns);
         t = transform;
         r2d = GetComponent<Rigidbody2D>();
         mainCollider = GetComponent<CapsuleCollider2D>();
@@ -54,6 +55,7 @@ public class CharacterController2D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         // Movement controls
         if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) && (isGrounded || Mathf.Abs(r2d.velocity.x) > 0.01f))
         {
@@ -91,13 +93,14 @@ public class CharacterController2D : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            changeGun();
-        }
-
         if (Input.GetKeyDown(KeyCode.M))
         {
+
+            if (!GameObject.Find("Canvas").GetComponent<Canvas>().enabled)
+            {
+                inventory.setDice(diceGuns);
+            }
+
             GameObject.Find("Canvas").GetComponent<Canvas>().enabled = !GameObject.Find("Canvas").GetComponent<Canvas>().enabled;
         }
 
@@ -158,17 +161,32 @@ public class CharacterController2D : MonoBehaviour
 
     public void updateDiceGun(DiceGuns diceGun)
     {
-        GameObject.Find("Canvas").GetComponent<Canvas>().enabled = false;
         this.diceGuns = diceGun;
-        DiceDataBase.Instance.diceGuns = diceGun;
         inventory.setDice(diceGun);
     }
 
-    void changeGun()
+    public void changeGun(Gun gunToChange)
     {
-        int gunIndex = Random.Range(0, 6);
-        Instantiate(diceGuns.getList()[gunIndex].getPrefab(),t.position,t.rotation);
+        DiceDataBase.Instance.currentGun = gunToChange;
+        Instantiate(gunToChange.getPrefab(),t.position,t.rotation);
         Destroy(gameObject);
+    }
+
+    public void diceAnim()
+    {
+        StartCoroutine(inventory.rollAnimation());
+    }
+
+    public void chamberEnd()
+    {
+        GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
+        inventory.setDice(diceGuns);
+    }
+
+    public void loadRandomScene()
+    {
+        //SceneManager.LoadScene(Random.Range(1, 4));
+        SceneManager.LoadScene(2);
     }
 
 }
