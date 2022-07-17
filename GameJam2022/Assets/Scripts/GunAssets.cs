@@ -19,6 +19,7 @@ public class GunAssets : MonoBehaviour
     public Sprite TotallyOriginalConceptSprite;
     public Sprite TheVeryExciteingFlameThrowerSprite;
     public Sprite CarefulNotTOStepInItSprite;
+    public Sprite White;
 
     public Object LeafyPref;
     public Object EggxterminatorPref;

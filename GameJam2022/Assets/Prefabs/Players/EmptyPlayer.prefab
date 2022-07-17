@@ -165,7 +165,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 4342157565591250063}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 59496753f63e78346b8795ccdad4bf17, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -187,7 +187,6 @@ MonoBehaviour:
   maxSpeed: 40
   jumpHeight: 70
   gravityScale: 7
-  mainCamera: {fileID: 0}
   animator: {fileID: 4342157565591250048}
   facingRight: 1
 --- !u!95 &4342157565591250048

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DiceDataBase : MonoBehaviour
 {
@@ -9,17 +10,22 @@ public class DiceDataBase : MonoBehaviour
 
     public DiceGuns diceGuns;
     public Gun wonGun;
+    public Gun currentGun;
 
     private void Awake()
     {
-        diceGuns = new DiceGuns();
-        diceGuns.addGun(new Gun { gunType = Gun.GunType.PocketCannon });
-        diceGuns.addGun(new Gun { gunType = Gun.GunType.Uzi });
-        diceGuns.addGun(new Gun { gunType = Gun.GunType.Eggxterminator });
-        diceGuns.addGun(new Gun { gunType = Gun.GunType.TheVeryExciteingFlameThrower });
-        diceGuns.addGun(new Gun { gunType = Gun.GunType.Leafy });
-        diceGuns.addGun(new Gun { gunType = Gun.GunType.CarefulNotTOStepInIt });
-        wonGun = null;
-        Instance = this;
+        if(SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            diceGuns = new DiceGuns();
+            wonGun = new Gun { gunType = Gun.GunType.PocketCannon };
+            currentGun = wonGun;
+            diceGuns.addGun(wonGun);
+            diceGuns.addGun(new Gun { gunType = Gun.GunType.Uzi });
+            diceGuns.addGun(new Gun { gunType = Gun.GunType.Eggxterminator });
+            diceGuns.addGun(new Gun { gunType = Gun.GunType.TheVeryExciteingFlameThrower });
+            diceGuns.addGun(new Gun { gunType = Gun.GunType.Leafy });
+            diceGuns.addGun(new Gun { gunType = Gun.GunType.CarefulNotTOStepInIt });
+            Instance = this;
+        }
     }
 }

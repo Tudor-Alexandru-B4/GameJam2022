@@ -5,8 +5,6 @@ using UnityEngine;
 public class BackgroundResize : MonoBehaviour
 {
 
-    public Camera mainCamera;
-
     Transform tr;
     Transform cameraTr;
 
@@ -14,7 +12,7 @@ public class BackgroundResize : MonoBehaviour
     void Start()
     {
         tr = GetComponent<Transform>();
-        cameraTr = mainCamera.GetComponent<Transform>();
+        cameraTr = GameObject.Find("Main Camera").GetComponent<Camera>().GetComponent<Transform>();
         tr.localScale = cameraTr.localScale * 50;
     }
 

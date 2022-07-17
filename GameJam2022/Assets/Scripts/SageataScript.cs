@@ -15,14 +15,17 @@ public class SageataScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        CharacterController2D character = collider.GetComponent<CharacterController2D>();
-        if(character != null)
-        {
-            character.TakeDamage(damage);
-        }
-        if (collider.gameObject.tag != "Enemy")
-        {
-            Destroy(gameObject);
-        }
+        if(collider.gameObject.tag != "Enemy" && collider.gameObject.tag != "EnemyChecker")
+           {
+                 CharacterController2D character = collider.GetComponent<CharacterController2D>();
+              if(character != null)
+              {
+                  character.TakeDamage(damage);
+              }
+              if (collider.gameObject.tag != "Enemy")
+              {
+                  Destroy(gameObject);
+              }
+           }
     }
 }

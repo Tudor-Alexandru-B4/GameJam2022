@@ -16,19 +16,26 @@ public class GlontScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        WheelScript wheel = collider.GetComponent<WheelScript>();
-        if (wheel != null)
-        {
-            wheel.TakeDamage(damage);
-        }
 
-        TurretScript turret = collider.GetComponent<TurretScript>();
-        if (turret != null)
+        if (collider.gameObject.tag != "Player" && collider.gameObject.tag != "EnemyChecker")
         {
-            turret.TakeDamage(damage);
-        }
-        Destroy(gameObject);
-        Instantiate(impactEffect, transform.position, transform.rotation);
+            WheelScript wheel = collider.GetComponent<WheelScript>();
+            if (wheel != null)
+            {
+                wheel.TakeDamage(damage);
+            }
+
+            TurretScript turret = collider.GetComponent<TurretScript>();
+            if (turret != null)
+            {
+                turret.TakeDamage(damage);
+            }
+            Destroy(gameObject);
+            Instantiate(impactEffect, transform.position, transform.rotation);
+            }
+
+        
+
     }
 
   

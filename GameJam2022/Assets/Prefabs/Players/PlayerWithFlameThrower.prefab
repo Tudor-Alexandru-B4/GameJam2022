@@ -165,7 +165,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 6620103444464255764}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 59496753f63e78346b8795ccdad4bf17, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -298,7 +298,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: f7ba7a2bf749f9d43b297ec4ec206299, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -364,6 +364,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7466163678233891998}
     m_Modifications:
+    - target: {fileID: 1391730306057301727, guid: b632ee9557237e0448b9162aa3b1189a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3541698157692065615, guid: b632ee9557237e0448b9162aa3b1189a, type: 3}
       propertyPath: m_Name
       value: MagicPrefab
