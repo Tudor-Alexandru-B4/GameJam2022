@@ -14,6 +14,8 @@ public class CharacterController2D : MonoBehaviour
     public float gravityScale = 1.5f;
     private Camera mainCamera;
     public Animator animator;
+    public SpriteRenderer sprite;
+
 
     private UI_Inventory inventory;
 
@@ -173,9 +175,26 @@ public class CharacterController2D : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void TakeDamage(float damage)
+    public void TakeDamage(float damage)
     {
+        StartCoroutine(FlashRed());
         HP -= damage;
+        if(HP <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
+    }
+
+    public IEnumerator FlashRed()
+    {
+        sprite.color = Color.red;
+        yield return new WaitForSeconds(0.2f);
+        sprite.color = Color.white;
     }
 
 }
