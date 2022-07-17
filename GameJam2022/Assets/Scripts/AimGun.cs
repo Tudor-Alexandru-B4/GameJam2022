@@ -17,9 +17,6 @@ public class AimGun : MonoBehaviour
         //transform.rotation = Quaternion.Euler(0f, 0f, angle);
 
 
-
-
-
         Vector2 direction;
         if (character.facingRight)
         {
@@ -34,6 +31,5 @@ public class AimGun : MonoBehaviour
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, speed * Time.deltaTime);
     }
-
     
 }
