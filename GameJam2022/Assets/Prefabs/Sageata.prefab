@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7788338953875453214}
   m_Layer: 0
   m_Name: Sageata
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,4 +147,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  damage: 1
   rb: {fileID: 5797168113797026898}

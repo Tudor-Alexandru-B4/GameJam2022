@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4357820207166161606
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4357820207166161611}
+  - component: {fileID: 4357820207166161604}
+  - component: {fileID: 4357820207166161605}
+  m_Layer: 0
+  m_Name: GunAssets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4357820207166161611
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4357820207166161606}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 53.485397, y: 137.59593, z: -1.680327}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4357820207166161604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4357820207166161606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9cc34c7567b1314ca1a76a3bb144167, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LeafySprite: {fileID: 21300000, guid: 9815e119e13eb0846a7e971521fd1be4, type: 3}
+  EggxterminatorSprite: {fileID: 21300000, guid: 33ee8c66add6709439871e7ee6d6031b, type: 3}
+  IceStaffSprite: {fileID: 21300000, guid: 716dc4b7dfde7564891a3c190b5b878e, type: 3}
+  PocketCannonSprite: {fileID: 21300000, guid: 69ab4cba08a4ac246b8e33cd7e733129, type: 3}
+  UziSprite: {fileID: 21300000, guid: af3adf8efdf9ca34bb90acaa448ac458, type: 3}
+  TotallyOriginalConceptSprite: {fileID: 21300000, guid: 3fb964d5950296f48b3daf7372d29db6, type: 3}
+  TheVeryExciteingFlameThrowerSprite: {fileID: 21300000, guid: f7ba7a2bf749f9d43b297ec4ec206299, type: 3}
+  CarefulNotTOStepInItSprite: {fileID: 21300000, guid: fa10891b15870474d9059f1372481e97, type: 3}
+  White: {fileID: 21300000, guid: b7b7e250a231b0c40b2bf261778f0318, type: 3}
+  LeafyPref: {fileID: 8078259877306621110, guid: 00b999487d592b14ebf01281a3a69963, type: 3}
+  EggxterminatorPref: {fileID: 4179486797733742375, guid: 4c9332104d442e3448bb76018a8a9631, type: 3}
+  IceStaffPref: {fileID: 4014568679844864874, guid: 460f23e46e7772149bf5887715c5a25f, type: 3}
+  PocketCannonPref: {fileID: 8287573361473275528, guid: f28b29afde280034aaabd84d024b7643, type: 3}
+  UziPref: {fileID: 7480017560863674646, guid: e5489107009600f40a07c0b47a6968d6, type: 3}
+  TotallyOriginalConceptPref: {fileID: 1150724073105213558, guid: 6d707933470fbe642a0392d0f61b89d3, type: 3}
+  TheVeryExciteingFlameThrowerPref: {fileID: 6620103444464255764, guid: 456778300630bcd44a5960ed9310da23, type: 3}
+  CarefulNotTOStepInItPref: {fileID: 3981558150882166651, guid: 15e84da50a7cf344a9a200d9c4640cfe, type: 3}
+--- !u!114 &4357820207166161605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4357820207166161606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e6de1faca093424da35f6139ab902b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

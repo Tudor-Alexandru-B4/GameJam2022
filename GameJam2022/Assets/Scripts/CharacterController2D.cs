@@ -128,7 +128,7 @@ public class CharacterController2D : MonoBehaviour
         // Camera follow
         if (mainCamera)
         {
-            mainCamera.transform.position = new Vector3(t.position.x, cameraPos.y, cameraPos.z);
+            mainCamera.transform.position = new Vector3(t.position.x, t.position.y, cameraPos.z);
         }
 
         
@@ -147,7 +147,7 @@ public class CharacterController2D : MonoBehaviour
         {
             for (int i = 0; i < colliders.Length; i++)
             {
-                if (colliders[i] != mainCollider)
+                if (colliders[i].gameObject.tag != "Player" && colliders[i].gameObject.tag != "Enemy" && colliders[i].gameObject.tag != "EnemyChecker")
                 {
                     isGrounded = true;
                     break;
@@ -191,6 +191,7 @@ public class CharacterController2D : MonoBehaviour
     {
         //SceneManager.LoadScene(Random.Range(1, 4));
         SceneManager.LoadScene(2);
+    }
 
     public void TakeDamage(float damage)
     {

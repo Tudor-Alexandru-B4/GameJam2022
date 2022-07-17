@@ -10,6 +10,14 @@ public class SpawnPoint : MonoBehaviour
     private void Start()
     {
         t = GetComponent<Transform>();
-        Instantiate(DiceDataBase.Instance.currentGun.getPrefab(), t.position, t.rotation);
+    }
+
+    private void Update()
+    {
+        if (DiceDataBase.Instance.currentGun.getPrefab())
+        {
+            Instantiate(DiceDataBase.Instance.currentGun.getPrefab(), t.position, t.rotation);
+            Destroy(gameObject);
+        }
     }
 }
