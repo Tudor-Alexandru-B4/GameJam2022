@@ -6,7 +6,6 @@ public class WeaponScript : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bullet;
-
     public float fireRate = 0.35f;
 
     bool isPressed = false;
