@@ -14,6 +14,9 @@ public class SageataScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        Destroy(gameObject);
+        if (collider.gameObject.tag != "Enemy")
+        {
+            Destroy(gameObject);
+        }
     }
 }

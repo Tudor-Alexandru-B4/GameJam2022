@@ -2,28 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurretScript : MonoBehaviour
+public class WheelScript : MonoBehaviour
 {
+
+
     public float HP = 100;
-    public SpriteRenderer sprite;
+
     public float range;
     public Transform target;
-    public Transform firePoint;
+    public Transform firePoint1;
+    public Transform firePoint2;
+    public Transform firePoint3;
+    public Transform firePoint4;
+    public Transform firePoint5;
     public GameObject bullet;
     public float fireRate;
-   // public Animator animator;
+    public SpriteRenderer sprite;
+
+    // public Animator animator;
 
     bool canShoot = true;
     bool isDetected = false;
 
     Vector2 direction;
-
-    public GameObject gun;
-
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -35,9 +40,9 @@ public class TurretScript : MonoBehaviour
 
         RaycastHit2D rayInfo = Physics2D.Raycast(transform.position, direction, range);
 
-        if(rayInfo)
+        if (rayInfo)
         {
-            if(!isDetected)
+            if (!isDetected)
             {
                 isDetected = true;
                 //animator.SetBool("isAgroed", true);
@@ -45,18 +50,17 @@ public class TurretScript : MonoBehaviour
             }
             else
             {
-               // animator.SetBool("isAgroed", false);
+                // animator.SetBool("isAgroed", false);
                 isDetected = false;
                 //Debug.Log("Nedetectat");
             }
         }
-        
-        if(isDetected)
+
+        if (isDetected)
         {
-            gun.transform.up = direction * -1;
-            if(canShoot)
+            if (canShoot)
             {
-               StartCoroutine(Shoot());
+                StartCoroutine(Shoot());
             }
         }
     }
@@ -69,7 +73,11 @@ public class TurretScript : MonoBehaviour
     IEnumerator Shoot()
     {
         canShoot = false;
-        Instantiate(bullet, firePoint.position, firePoint.rotation);
+        Instantiate(bullet, firePoint1.position, firePoint1.rotation);
+        Instantiate(bullet, firePoint2.position, firePoint2.rotation);
+        Instantiate(bullet, firePoint3.position, firePoint3.rotation);
+        Instantiate(bullet, firePoint4.position, firePoint4.rotation);
+        Instantiate(bullet, firePoint5.position, firePoint5.rotation);
         yield return new WaitForSecondsRealtime(fireRate);
         canShoot = true;
     }
@@ -78,10 +86,16 @@ public class TurretScript : MonoBehaviour
     {
         HP -= damage;
         StartCoroutine(FlashRed());
+
         if (HP <= 0)
         {
-            Destroy(gameObject);
-        }    
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
     }
 
     public IEnumerator FlashRed()
@@ -91,4 +105,5 @@ public class TurretScript : MonoBehaviour
         sprite.color = Color.white;
 
     }
+
 }
