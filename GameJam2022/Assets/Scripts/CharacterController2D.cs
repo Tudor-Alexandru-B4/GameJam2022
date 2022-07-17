@@ -118,6 +118,7 @@ public class CharacterController2D : MonoBehaviour
             animator.SetBool("isJumping", true);
         }
 
+
         // Camera follow
         if (mainCamera)
         {
