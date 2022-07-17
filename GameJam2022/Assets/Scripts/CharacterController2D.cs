@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class CharacterController2D : MonoBehaviour
 {
     // Move player in 2D space
-    public float HP = 100;
+    public float HP = 1000;
     public float maxSpeed = 3.4f;
     public float jumpHeight = 6.5f;
     public float gravityScale = 1.5f;
