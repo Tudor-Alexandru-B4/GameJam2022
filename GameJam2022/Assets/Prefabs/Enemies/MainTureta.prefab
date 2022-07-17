@@ -207,7 +207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 1000
   sprite: {fileID: 977063159680231283}
-  range: 60.2
+  range: 50
   target: {fileID: 0}
   firePoint: {fileID: 977063159910393226}
   bullet: {fileID: 6047165574812911978, guid: a239056242906e447b5a05c54a963fd3, type: 3}
