@@ -205,13 +205,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7307bc8178e2c3d45979c55fd0e4767c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 100
+  HP: 1000
   sprite: {fileID: 977063159680231283}
-  range: 60.2
+  range: 50
   target: {fileID: 0}
   firePoint: {fileID: 977063159910393226}
   bullet: {fileID: 6047165574812911978, guid: a239056242906e447b5a05c54a963fd3, type: 3}
-  fireRate: 0.75
+  fireRate: 2
   gun: {fileID: 977063159640991537}
 --- !u!61 &6127691081246395224
 BoxCollider2D:
