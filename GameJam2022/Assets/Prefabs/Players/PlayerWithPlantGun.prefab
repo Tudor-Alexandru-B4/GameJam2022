@@ -163,6 +163,7 @@ GameObject:
   - component: {fileID: 8078259877306621115}
   - component: {fileID: 8078259877306621112}
   - component: {fileID: 8078259877306621113}
+  - component: {fileID: 6226972797468045449}
   m_Layer: 0
   m_Name: PlayerWithPlantGun
   m_TagString: Player
@@ -287,12 +288,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2e984633fb9adf4892bd150f88ece1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 100
+  HP: 1500
   maxSpeed: 50
   jumpHeight: 200
   gravityScale: 50
   animator: {fileID: 8078259877306621113}
   sprite: {fileID: 0}
+  slider: {fileID: 0}
   facingRight: 1
 --- !u!95 &8078259877306621113
 Animator:
@@ -314,6 +316,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6226972797468045449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8078259877306621110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5dd40a8636a80945890c94cf7b649a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 8892031477373725291}
+  bullet: {fileID: 7729174171120715625, guid: 98e697e37d0766547a6bab8fa22c5c14, type: 3}
+  fireRate: 0.8
 --- !u!1 &8892031477373725290
 GameObject:
   m_ObjectHideFlags: 0

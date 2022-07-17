@@ -317,12 +317,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2e984633fb9adf4892bd150f88ece1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 100
+  HP: 1500
   maxSpeed: 50
   jumpHeight: 200
   gravityScale: 50
   animator: {fileID: 3981558150882166644}
   sprite: {fileID: 0}
+  slider: {fileID: 0}
   facingRight: 1
 --- !u!95 &3981558150882166644
 Animator:

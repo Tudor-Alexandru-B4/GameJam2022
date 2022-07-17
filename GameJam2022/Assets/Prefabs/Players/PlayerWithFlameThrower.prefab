@@ -184,12 +184,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2e984633fb9adf4892bd150f88ece1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 100
+  HP: 1500
   maxSpeed: 50
   jumpHeight: 200
   gravityScale: 50
   animator: {fileID: 6620103444464255771}
   sprite: {fileID: 0}
+  slider: {fileID: 0}
   facingRight: 1
 --- !u!95 &6620103444464255771
 Animator:
@@ -225,7 +226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 5974075898955423213}
   bullet: {fileID: 7880239845317760851, guid: e33c5f51dfa62b74888f63b2ff73dd32, type: 3}
-  fireRate: 0.45
+  fireRate: 0.32
 --- !u!1 &7466163678233892065
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,8 +14,8 @@ public class DiceDataBase : MonoBehaviour
 
     private void Awake()
     {
-        //if(SceneManager.GetActiveScene().buildIndex == 1)
-        //{
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
             diceGuns = new DiceGuns();
             wonGun = new Gun { gunType = Gun.GunType.PocketCannon };
             currentGun = wonGun;
@@ -26,6 +26,6 @@ public class DiceDataBase : MonoBehaviour
             diceGuns.addGun(new Gun { gunType = Gun.GunType.Leafy });
             diceGuns.addGun(new Gun { gunType = Gun.GunType.CarefulNotTOStepInIt });
             Instance = this;
-        //}
+        }
     }
 }
