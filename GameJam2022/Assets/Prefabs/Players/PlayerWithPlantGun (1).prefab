@@ -307,6 +307,15 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD:GameJam2022/Assets/Prefabs/Players/PlayerWithPlantGun.prefab
+  - component: {fileID: 8078259877306621116}
+  - component: {fileID: 8078259877306621117}
+  - component: {fileID: 8078259877306621114}
+  - component: {fileID: 8078259877306621115}
+  - component: {fileID: 8078259877306621112}
+  - component: {fileID: 8078259877306621113}
+  - component: {fileID: 6226972797468045449}
+=======
   - component: {fileID: 3907187817208896621}
   - component: {fileID: 7107072358888184574}
   - component: {fileID: 3329325186971769089}
@@ -314,6 +323,7 @@ GameObject:
   - component: {fileID: 4126453198556324842}
   - component: {fileID: 4494064757411843168}
   - component: {fileID: 1019391716550156096}
+>>>>>>> 97580fc3317bbbdc3914f8746fad479be65f7125:GameJam2022/Assets/Prefabs/Players/PlayerWithPlantGun (1).prefab
   m_Layer: 0
   m_Name: PlayerWithPlantGun (1)
   m_TagString: Player
@@ -444,6 +454,7 @@ MonoBehaviour:
   gravityScale: 50
   animator: {fileID: 4494064757411843168}
   sprite: {fileID: 0}
+  slider: {fileID: 0}
   facingRight: 1
 --- !u!95 &4494064757411843168
 Animator:
@@ -465,7 +476,58 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+<<<<<<< HEAD:GameJam2022/Assets/Prefabs/Players/PlayerWithPlantGun.prefab
+--- !u!114 &6226972797468045449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8078259877306621110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5dd40a8636a80945890c94cf7b649a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 8892031477373725291}
+  bullet: {fileID: 7729174171120715625, guid: 98e697e37d0766547a6bab8fa22c5c14, type: 3}
+  fireRate: 0.8
+--- !u!1 &8892031477373725290
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8892031477373725291}
+  - component: {fileID: 8892031477373725292}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8892031477373725291
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8892031477373725290}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.739207, y: 5.401599, z: -0.051353723}
+  m_LocalScale: {x: 1.6118633, y: 1.5337423, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5501656852369947532}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8892031477373725292
+=======
 --- !u!114 &1019391716550156096
+>>>>>>> 97580fc3317bbbdc3914f8746fad479be65f7125:GameJam2022/Assets/Prefabs/Players/PlayerWithPlantGun (1).prefab
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

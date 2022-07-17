@@ -190,6 +190,7 @@ MonoBehaviour:
   gravityScale: 50
   animator: {fileID: 6620103444464255771}
   sprite: {fileID: 0}
+  slider: {fileID: 0}
   facingRight: 1
 --- !u!95 &6620103444464255771
 Animator:

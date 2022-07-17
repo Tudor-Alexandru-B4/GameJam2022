@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -16,7 +17,9 @@ public class CharacterController2D : MonoBehaviour
     private Camera mainCamera;
     public Animator animator;
     public SpriteRenderer sprite;
+    bool dead = false;
 
+    public Slider slider;
 
     private UI_Inventory inventory;
 
@@ -33,6 +36,7 @@ public class CharacterController2D : MonoBehaviour
 
     void Awake()
     {
+        slider = GameObject.Find("legatura").GetComponent<Slider>();
         mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
         inventory = GameObject.Find("UI_Inventory").GetComponent<UI_Inventory>();
     }
@@ -41,6 +45,7 @@ public class CharacterController2D : MonoBehaviour
     {
         diceGuns = DiceDataBase.Instance.diceGuns;
         //inventory.setDice(diceGuns);
+        SetMaxHealth((int)HP);
         t = transform;
         r2d = GetComponent<Rigidbody2D>();
         mainCollider = GetComponent<CapsuleCollider2D>();
@@ -59,79 +64,89 @@ public class CharacterController2D : MonoBehaviour
     void Update()
     {
 
-        // Movement controls
-        if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) && (isGrounded || Mathf.Abs(r2d.velocity.x) > 0.01f))
+        if (!dead)
         {
-            moveDirection = Input.GetKey(KeyCode.A) ? -1 : 1;
-            //Animator
-            animator.SetFloat("Speed", 10);
-        }
-        else
-        {
-            if (isGrounded || r2d.velocity.magnitude < 0.01f)
+            // Movement controls
+            if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) && (isGrounded || Mathf.Abs(r2d.velocity.x) > 0.01f))
             {
-                moveDirection = 0;
+                moveDirection = Input.GetKey(KeyCode.A) ? -1 : 1;
                 //Animator
-                animator.SetFloat("Speed", 0);
+                animator.SetFloat("Speed", 10);
             }
-        }
-
-        // Change facing direction
-        if (moveDirection != 0)
-        {
-
-            if (moveDirection > 0 && !facingRight)
+            else
             {
-                facingRight = true;
-                t.localScale = new Vector3(Mathf.Abs(t.localScale.x), t.localScale.y, transform.localScale.z);
-                //t.Rotate(0f, 180f, 0f);
-                
+                if (isGrounded || r2d.velocity.magnitude < 0.01f)
+                {
+                    moveDirection = 0;
+                    //Animator
+                    animator.SetFloat("Speed", 0);
+                }
             }
-            if (moveDirection < 0 && facingRight)
+
+            // Change facing direction
+            if (moveDirection != 0)
             {
-                facingRight = false;
-                t.localScale = new Vector3(-Mathf.Abs(t.localScale.x), t.localScale.y, t.localScale.z);
-                //t.Rotate(0f, 180f, 0f);
 
+                if (moveDirection > 0 && !facingRight)
+                {
+                    facingRight = true;
+                    t.localScale = new Vector3(Mathf.Abs(t.localScale.x), t.localScale.y, transform.localScale.z);
+                    //t.Rotate(0f, 180f, 0f);
+
+                }
+                if (moveDirection < 0 && facingRight)
+                {
+                    facingRight = false;
+                    t.localScale = new Vector3(-Mathf.Abs(t.localScale.x), t.localScale.y, t.localScale.z);
+                    //t.Rotate(0f, 180f, 0f);
+
+                }
             }
-        }
 
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-
-            if (!GameObject.Find("Canvas").GetComponent<Canvas>().enabled)
+            if (Input.GetKeyDown(KeyCode.M))
             {
-                inventory.setDice(diceGuns);
+
+                if (!GameObject.Find("Canvas").GetComponent<Canvas>().enabled)
+                {
+                    inventory.setDice(diceGuns);
+                }
+
+                GameObject.Find("Canvas").GetComponent<Canvas>().enabled = !GameObject.Find("Canvas").GetComponent<Canvas>().enabled;
             }
 
-            GameObject.Find("Canvas").GetComponent<Canvas>().enabled = !GameObject.Find("Canvas").GetComponent<Canvas>().enabled;
+            // Jumping
+            if (Input.GetKeyDown(KeyCode.W) && isGrounded)
+            {
+                r2d.velocity = new Vector2(r2d.velocity.x, jumpHeight);
+                //animator.SetBool("isJumping", true);
+
+            }
+
+            if (isGrounded)
+            {
+                animator.SetBool("isJumping", false);
+            }
+            else
+            {
+                animator.SetBool("isJumping", true);
+            }
+
+
+            // Camera follow
+            if (mainCamera)
+            {
+                mainCamera.transform.position = new Vector3(t.position.x, t.position.y, cameraPos.z);
+            }
+
+            SetHealth((int)HP);
+
+            if (HP <= 0)
+            {
+                Die();
+                dead = true;
+            }
         }
 
-        // Jumping
-        if (Input.GetKeyDown(KeyCode.W) && isGrounded)
-        {
-            r2d.velocity = new Vector2(r2d.velocity.x, jumpHeight);
-            //animator.SetBool("isJumping", true);
-
-        }
-
-        if (isGrounded)
-        {
-            animator.SetBool("isJumping", false);
-        }
-        else
-        {
-            animator.SetBool("isJumping", true);
-        }
-
-
-        // Camera follow
-        if (mainCamera)
-        {
-            mainCamera.transform.position = new Vector3(t.position.x, t.position.y, cameraPos.z);
-        }
-
-        
     }
 
     void FixedUpdate()
@@ -189,8 +204,7 @@ public class CharacterController2D : MonoBehaviour
 
     public void loadRandomScene()
     {
-        //SceneManager.LoadScene(Random.Range(1, 4));
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(Random.Range(2, 4));
     }
 
     public void TakeDamage(float damage)
@@ -205,7 +219,15 @@ public class CharacterController2D : MonoBehaviour
 
     void Die()
     {
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        SceneManager.LoadScene(0);
+        StartCoroutine(restart());
+        SceneManager.LoadScene(1);
+    }
+
+    IEnumerator restart()
+    {
+        yield return new WaitForSeconds(2);
     }
 
     public IEnumerator FlashRed()
@@ -213,7 +235,17 @@ public class CharacterController2D : MonoBehaviour
         sprite.color = Color.red;
         yield return new WaitForSeconds(0.2f);
         sprite.color = Color.white;
+    }
 
+    public void SetMaxHealth(int health)
+    {
+        slider.maxValue = health;
+        slider.value = health;
+    }
+
+    public void SetHealth(int health)
+    {
+        slider.value = health;
     }
 
 }
