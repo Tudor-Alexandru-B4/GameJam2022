@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 106013019968417152}
   m_Layer: 0
   m_Name: PlayerWithWitch
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 106013019968417167}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -32.056396, y: -6.0254626, z: -0.5696533}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.95, y: 0.95, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1065483805278192729}
@@ -141,7 +141,6 @@ MonoBehaviour:
   maxSpeed: 40
   jumpHeight: 70
   gravityScale: 7
-  mainCamera: {fileID: 0}
   animator: {fileID: 106013019968417152}
   facingRight: 1
 --- !u!95 &106013019968417152

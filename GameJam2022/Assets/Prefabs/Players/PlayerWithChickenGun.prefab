@@ -253,7 +253,7 @@ GameObject:
   - component: {fileID: 4173148036653065743}
   m_Layer: 0
   m_Name: PlayerWithChickenGun
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -267,7 +267,7 @@ Transform:
   m_GameObject: {fileID: 4173148036653065728}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -27.246887, y: -2.0470562, z: -0.5696533}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.95, y: 0.95, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3916998770487873494}
@@ -378,7 +378,6 @@ MonoBehaviour:
   maxSpeed: 50
   jumpHeight: 100
   gravityScale: 15
-  mainCamera: {fileID: 0}
   animator: {fileID: 4173148036653065743}
   facingRight: 1
 --- !u!95 &4173148036653065743
